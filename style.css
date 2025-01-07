@@ -1,0 +1,73 @@
+body {
+    font-family: Arial, sans-serif; /* Clean, readable font */
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(90deg, #2c3e50, #4ca1af);
+}
+
+form {
+    width: 400px;
+    margin: 50px auto; /* Centers the form on the page */
+    background-color: #fff; /* White background for the form */
+    border-radius: 8px; /* Rounded corners for modern styling */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    padding: 60px; /* Space inside the form */
+    display: flex;
+    flex-direction: column; /* Stacks form elements vertically */
+    gap: 20px; /* Spacing between form groups */
+}
+
+div {
+    position: relative;
+    display: flex;
+    flex-direction: column; /* Stacks labels and inputs vertically */
+    margin-bottom: 20px; /* Space between each input field */
+}
+
+span {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: #555; /* Gray text for labels */
+    font-size: 16px;
+    transition: all 0.3s ease; /* Smooth transition for floating effect */
+}
+
+input {
+    padding: 10px; /* Comfortable padding for inputs */
+    font-size: 16px; 
+    border: 1px solid #ddd; /* Light border for inputs */
+    border-radius: 5px; /* Smooth edges for a modern look */
+    box-sizing: border-box; /* Ensures padding doesn't overflow */
+    width: 100%; /* Makes inputs stretch to full width */
+}
+
+input:focus {
+    border-color: #6a0dad; /* Highlight border on focus */
+    outline: none; /* Removes default outline */
+    box-shadow: 0 0 4px rgba(106, 13, 173, 0.5); /* Subtle shadow for focus */
+}
+
+button {
+    padding: 10px;
+    font-size: 16px;
+    color: white;
+    background-color: #6a0dad; /* Purple button */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    /* margin-top: 30px; */
+    width: 40%;
+
+    margin: 30px auto;
+}
+
+button:hover {
+    background-color: #4b0082; /* Darker purple on hover */
+}
+
+button:active {
+    background-color: #36006d; /* Even darker purple when clicked */
+    transform: scale(0.98); /* Slight shrink effect */
+}
