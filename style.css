@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif; /* Clean, readable font */
+    font-family: Arial, sans-serif; 
     margin: 0;
     padding: 0;
     background: linear-gradient(90deg, #2c3e50, #4ca1af);
@@ -7,67 +7,65 @@ body {
 
 form {
     width: 400px;
-    margin: 50px auto; /* Centers the form on the page */
-    background-color: #fff; /* White background for the form */
-    border-radius: 8px; /* Rounded corners for modern styling */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    padding: 60px; /* Space inside the form */
+    margin: 50px auto; 
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 60px;
     display: flex;
-    flex-direction: column; /* Stacks form elements vertically */
-    gap: 20px; /* Spacing between form groups */
+    flex-direction: column;
+    gap: 20px;
 }
 
 div {
     position: relative;
     display: flex;
-    flex-direction: column; /* Stacks labels and inputs vertically */
-    margin-bottom: 20px; /* Space between each input field */
+    flex-direction: column;
+    margin-bottom: 20px;
 }
 
 span {
     position: absolute;
     top: 10px;
     left: 10px;
-    color: #555; /* Gray text for labels */
+    color: #555;
     font-size: 16px;
-    transition: all 0.3s ease; /* Smooth transition for floating effect */
+    transition: all 0.3s ease;
 }
 
 input {
-    padding: 10px; /* Comfortable padding for inputs */
+    padding: 10px;
     font-size: 16px; 
-    border: 1px solid #ddd; /* Light border for inputs */
-    border-radius: 5px; /* Smooth edges for a modern look */
-    box-sizing: border-box; /* Ensures padding doesn't overflow */
-    width: 100%; /* Makes inputs stretch to full width */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    width: 100%;
 }
 
 input:focus {
-    border-color: #6a0dad; /* Highlight border on focus */
-    outline: none; /* Removes default outline */
-    box-shadow: 0 0 4px rgba(106, 13, 173, 0.5); /* Subtle shadow for focus */
+    border-color: #6a0dad;
+    outline: none;
+    box-shadow: 0 0 4px rgba(106, 13, 173, 0.5);
 }
 
 button {
     padding: 10px;
     font-size: 16px;
     color: white;
-    background-color: #6a0dad; /* Purple button */
+    background-color: #6a0dad;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    /* margin-top: 30px; */
     width: 40%;
-
     margin: 30px auto;
 }
 
 button:hover {
-    background-color: #4b0082; /* Darker purple on hover */
+    background-color: #4b0082;
 }
 
 button:active {
-    background-color: #36006d; /* Even darker purple when clicked */
-    transform: scale(0.98); /* Slight shrink effect */
+    background-color: #36006d;
+    transform: scale(0.98);
 }
