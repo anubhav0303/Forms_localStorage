@@ -4,7 +4,28 @@ const phoneDom=document.querySelector('#sp3');
 const nameInput=document.querySelector('#nameinput');
 const mailInput=document.querySelector('#emailinput');
 const phoneInput=document.querySelector('#phoneinput');
+const form=document.querySelector('#myForm');
 
+if(localStorage.getItem('name')){
+    nameInput.value=localStorage.getItem('name');
+    nameDom.style.top = '-20px'; 
+}
+if(localStorage.getItem('mail')){
+    mailInput.value=localStorage.getItem('mail');
+    mailDom.style.top = '-20px'; 
+}
+if(localStorage.getItem('phone')){
+    phoneInput.value=localStorage.getItem('phone');
+    phoneDom.style.top = '-20px'; 
+}
+
+form.addEventListener('submit',(e)=>{
+    e.preventDefault();
+    localStorage.setItem('name',nameInput.value);
+    localStorage.setItem('mail',mailInput.value);
+    localStorage.setItem('phone',phoneInput.value);
+
+});
 
 nameInput.addEventListener('focus',()=>{
         nameDom.style.top='-20px';
@@ -47,3 +68,4 @@ phoneInput.addEventListener('blur',()=>{
         phoneDom.style.left='10px';
     }
 });
+
