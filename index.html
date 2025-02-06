@@ -10,24 +10,53 @@
 
     <form action="" id="myForm">
         <div>
-        <span id="sp1">
-        Name</span>
-        <input type="text" id="nameinput">
-    </div>
+            <span id="sp1">
+            Name</span>
+            <input type="text" id="nameinput">
+        </div>
 
-    <div>
-        <span id="sp2">E-Mail </span>
-        <input type="e" id="emailinput">
-    </div>
+        <div>
+            <span id="sp2">E-Mail </span>
+            <input type="e" id="emailinput">
+        </div>
     
-    <div>
-        <span id="sp3">Phone Number</span>
-        <input type="number" id="phoneinput">
-        <button type="submit" id="submitbtn">Submit</button>
-    </div>
-
+        <div>
+            <span id="sp3">Phone Number</span>
+            <input type="number" id="phoneinput">
+            <button type="submit" id="submitbtn" onclick="addContact(event)">Submit</button>
+        </div>
     </form>
+    
+    <marquee behavior="" direction="" bgcolor="black" height="1px"></marquee>
 
-<script src="script.js"></script>
+   <!--  <div class="container">
+        <h2 id="sp4" style="text-decoration: underline;">LOGS</h2>
+        <button id="logid1">log1</button>
+        <input type="text" readonly >
+        <button id="logid2">log2</button>
+        <input type="text" readonly >
+
+    </div> -->
+    <table>
+        <tbody id="table">
+        <!-- <h2>DATA TABLE</h2> -->
+         <!-- <tr>data table</tr> -->
+            <tr>
+                <th>Name</th>
+                <th>Mail</th>
+                <th>Phone</th>
+            </tr>
+        
+            <!-- <tr>
+                <td>Name</td>
+                <td>Mail</td>
+                <td>Phone</td>
+            </tr> -->
+        </tbody>
+        
+    </table>
+    
+<script src="floatlabel.js"></script>
+<script src="dataUtil.js"></script>
 </body>
 </html>

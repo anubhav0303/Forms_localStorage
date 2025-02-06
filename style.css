@@ -25,6 +25,7 @@ div {
 }
 
 span {
+    pointer-events: none;
     position: absolute;
     top: 10px;
     left: 10px;
@@ -68,4 +69,21 @@ button:hover {
 button:active {
     background-color: #36006d;
     transform: scale(0.98);
+}
+
+.container{
+    margin-top: 50px;
+}
+.container button{
+    margin-left: 0;
+    width: 70px;
+}
+table{
+    /* background-color: pink; */
+    margin-bottom: 50px;
+    margin-left: 50px;
+
+}
+table th{
+    padding: 5px;
 }
