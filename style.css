@@ -70,7 +70,6 @@ button:active {
     background-color: #36006d;
     transform: scale(0.98);
 }
-
 .container{
     margin-top: 50px;
 }
@@ -78,12 +77,22 @@ button:active {
     margin-left: 0;
     width: 70px;
 }
-table{
-    /* background-color: pink; */
+table {
     margin-bottom: 50px;
-    margin-left: 50px;
+    margin-top: 50px;
+    margin-left: 10%;
+    border-collapse: collapse; 
+    width: 80%; 
+    border: 2px solid black; 
+}
 
+table th, table td {
+    padding: 10px;
+    border: 1px solid black;
+    text-align: center;
 }
-table th{
-    padding: 5px;
+
+table th {
+    background-color: lightslategrey;
 }
+
