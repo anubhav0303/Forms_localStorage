@@ -3,20 +3,9 @@ const mailInput1=document.querySelector('#emailinput');
 const phoneInput1=document.querySelector('#phoneinput');
 const form=document.querySelector('#myForm');
 const tableDOM=document.querySelector('#table')
-console.log(form)
+const tableBody = document.querySelector('#tBody');
 
-/* if(localStorage.getItem('name')){
-    nameInput1.value=localStorage.getItem('name');
-    nameDom.style.top = '-20px'; 
-}
-if(localStorage.getItem('mail')){
-    mailInput1.value=localStorage.getItem('mail');
-    mailDom.style.top = '-20px';
-}
-if(localStorage.getItem('phone')){
-    phoneInput1.value=localStorage.getItem('phone');
-    phoneDom.style.top = '-20px'; 
-} */
+console.log(form)
 
 let contacts = localStorage.getItem('contacts')
 contacts = contacts ? JSON.parse(contacts) : []
@@ -39,7 +28,7 @@ let addContact = (e) => {
     form.reset()
 
     // createTR(contact.id,contact.name)
-    tableDOM.innerHTML=''
+    tableBody.innerHTML=''
     drawContactTable()
 
     /* localStorage.setItem('name', nameInput1.value);
@@ -48,25 +37,46 @@ let addContact = (e) => {
 }
 function createTR(id,name,mail,phone){
     const contactTR= document.createElement("tr");
+
+    const idTD = document.createElement("td");
+    idTD.innerHTML = id;
     
-    const idTR=document.createElement("td");
-    idTR.innerHTML=id;
-
-    const nameTR=document.createElement("td");
-    nameTR.innerHTML=name
-
-    const mailTR=document.createElement("td");
-    mailTR.innerHTML=mail
-    const phoneTR=document.createElement("td");
-    phoneTR.innerHTML=phone
-
-    // contactTR.appendChild(idTD);
-    contactTR.appendChild(nameTR);
-    contactTR.appendChild(mailTR);
-    contactTR.appendChild(phoneTR);
+    const nameTD = document.createElement("td");
+    nameTD.innerHTML = name;
     
-    tableDOM.appendChild(contactTR);
+    const mailTD = document.createElement("td");
+    mailTD.innerHTML = mail;
+    
+    const phoneTD = document.createElement("td");
+    phoneTD.innerHTML = phone;
 
+    const actiondTD=document.createElement('td')
+    const editTD = document.createElement("td");
+    editTD.innerHTML = "✏️";
+    editTD.style.cursor = "pointer";
+    const deleteTD=document.createElement('td')
+    deleteTD.innerHTML='🗑️'
+    deleteTD.style.cursor = "pointer";
+    // deleteTD.style.hover.color = "blue";
+    // deleteTD.style.display='block';
+
+    contactTR.appendChild(idTD);
+    contactTR.appendChild(nameTD);
+    contactTR.appendChild(mailTD);
+    contactTR.appendChild(phoneTD);
+    contactTR.appendChild(editTD);
+    contactTR.appendChild(deleteTD);
+    tableBody.appendChild(contactTR);
+
+    deleteTD.onclick = function () {
+
+        contactTR.remove();
+        if (contacts.length === 0) {
+            nextId = 1;
+            localStorage.setItem("contactsNextId", nextId);
+        }
+    };
+    
 }
 // createTR(1,'anu','asd@fasdk','2131231')
 function drawContactTable () { 
