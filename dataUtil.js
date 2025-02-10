@@ -7,8 +7,9 @@ const tableBody = document.querySelector('#tBody');
 
 console.log(form)
 
-let contacts = localStorage.getItem('contacts')
-contacts = contacts ? JSON.parse(contacts) : []
+let contacts_fromLocalStorage = localStorage.getItem('localstorage_contacts')
+console.log(contacts_fromLocalStorage);
+let contacts = contacts_fromLocalStorage  ? JSON.parse(contacts_fromLocalStorage ) : []
 console.log(contacts)
 
 let nextId = parseInt(localStorage.getItem('contactsNextId')) || 1
@@ -23,19 +24,18 @@ let addContact = (e) => {
     nextId++
     localStorage.setItem('contactsNextId', nextId)
     contact.name = form.elements.nameinput.value
-    contacts.push(contact)
-    localStorage.setItem('contacts', JSON.stringify(contacts))
+    contacts.push(contact) 
+    localStorage.setItem('localstorage_contacts', JSON.stringify(contacts))
     form.reset()
 
     // createTR(contact.id,contact.name)
-    tableBody.innerHTML=''
-    drawContactTable()
+    redrawTable()
 
     /* localStorage.setItem('name', nameInput1.value);
     localStorage.setItem('mail', mailInput1.value);
     localStorage.setItem('phone', phoneInput1.value); */
 }
-function createTR(id,name,mail,phone){
+function createTR(index, id, name, mail, phone){
     const contactTR= document.createElement("tr");
 
     const idTD = document.createElement("td");
@@ -50,7 +50,7 @@ function createTR(id,name,mail,phone){
     const phoneTD = document.createElement("td");
     phoneTD.innerHTML = phone;
 
-    const actiondTD=document.createElement('td')
+    // const actiondTD=document.createElement('td')
     const editTD = document.createElement("td");
     editTD.innerHTML = "✏️";
     editTD.style.cursor = "pointer";
@@ -69,21 +69,32 @@ function createTR(id,name,mail,phone){
     tableBody.appendChild(contactTR);
 
     deleteTD.onclick = function () {
+        // delete item on index
+        contacts.splice(index,1)
+        console.log(contacts);
 
-        contactTR.remove();
-        if (contacts.length === 0) {
+        localStorage.setItem('localstorage_contacts', JSON.stringify(contacts));
+        // nextId = parseInt(localStorage.getItem('contactsNextId')) || id+1
+        
+        redrawTable()
+
+        /* if (contacts.length === 0) {
             nextId = 1;
             localStorage.setItem("contactsNextId", nextId);
-        }
-    };
-    
+        } */
+    }; 
 }
 // createTR(1,'anu','asd@fasdk','2131231')
 function drawContactTable () { 
-        for (const contact of contacts) {
+    for (const index in contacts) {
+        const contact = contacts[index];
         console.log(contact);
-            createTR(contact.id, contact.name, contact.mail, contact.phone)
+        createTR(index, contact.id, contact.name, contact.mail, contact.phone);
     }
 }
 drawContactTable()
 
+function redrawTable(){
+    tableBody.innerHTML=''
+    drawContactTable()
+}
