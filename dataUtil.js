@@ -3,6 +3,9 @@ const mailInput1=document.querySelector('#emailinput');
 const phoneInput1=document.querySelector('#phoneinput');
 const form=document.querySelector('#myForm');
 const tableDOM=document.querySelector('#table')
+const submitDOM=document.querySelector('#submitbtn')
+const saveDOM=document.querySelector('#savebtn')
+const cancelDOM=document.querySelector('#cancelbtn')
 const tableBody = document.querySelector('#tBody');
 
 console.log(form)
@@ -69,20 +72,41 @@ function createTR(index, id, name, mail, phone){
     tableBody.appendChild(contactTR);
 
     deleteTD.onclick = function () {
-        // delete item on index
+        
         contacts.splice(index,1)
         console.log(contacts);
 
-        localStorage.setItem('localstorage_contacts', JSON.stringify(contacts));
-        // nextId = parseInt(localStorage.getItem('contactsNextId')) || id+1
-        
+        localStorage.setItem('localstorage_contacts', JSON.stringify(contacts));       
         redrawTable()
+    };
+    editTD.onclick=function(){
+        nameInput1.value = contacts[index].name;
+        mailInput1.value = contacts[index].mail;
+        phoneInput1.value = contacts[index].phone;
+        
+        submitDOM.style.display = 'none';       
+        saveDOM.style.display = 'inline-block';   
+        cancelDOM.style.display = 'inline-block';
+        // form.reset();
+        redrawTable() 
+    
+            saveDOM.onclick = function () {
+            contacts[index].name = nameInput1.value;
+            contacts[index].mail = mailInput1.value;
+            contacts[index].phone = phoneInput1.value;
+            localStorage.setItem('localstorage_contacts', JSON.stringify(contacts));
+            // form.reset();
+            redrawTable()
+            }
 
-        /* if (contacts.length === 0) {
-            nextId = 1;
-            localStorage.setItem("contactsNextId", nextId);
-        } */
-    }; 
+            cancelDOM.onclick = function () {
+            // form.reset();
+            submitDOM.style.display = 'inline-block';
+            saveDOM.style.display = 'none';
+            cancelDOM.style.display = 'none';
+            redrawTable()
+            }
+    }
 }
 // createTR(1,'anu','asd@fasdk','2131231')
 function drawContactTable () { 

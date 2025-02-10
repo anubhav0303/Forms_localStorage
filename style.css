@@ -95,7 +95,11 @@ table th, table td {
 table th {
     background-color: lightslategrey;
 }
-/* .actionTh{
-    cursor: pointer;
+#savebtn{
+    display: none;
+  
 }
- */
+#cancelbtn{
+    display: none;
+    
+}
