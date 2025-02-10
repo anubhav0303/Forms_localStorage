@@ -84,6 +84,10 @@ function createTR(index, id, name, mail, phone){
         mailInput1.value = contacts[index].mail;
         phoneInput1.value = contacts[index].phone;
         
+        nameInput1.dispatchEvent(new Event('blur'));
+        mailInput1.dispatchEvent(new Event('blur'));
+        phoneInput1.dispatchEvent(new Event('blur'));
+        
         submitDOM.style.display = 'none';       
         saveDOM.style.display = 'inline-block';   
         cancelDOM.style.display = 'inline-block';
@@ -95,7 +99,6 @@ function createTR(index, id, name, mail, phone){
             contacts[index].mail = mailInput1.value;
             contacts[index].phone = phoneInput1.value;
             localStorage.setItem('localstorage_contacts', JSON.stringify(contacts));
-            // form.reset();
             redrawTable()
             }
 
